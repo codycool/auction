@@ -1,5 +1,4 @@
-
-var app = require('./app');
+var app = require('./server/app');
 var debug = require('debug')('node-irich:server');
 var http = require('http');
 var models = require('./config/database');

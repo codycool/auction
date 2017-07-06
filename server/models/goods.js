@@ -39,7 +39,11 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Goods.associate = function (models) {
-    
+    Goods.belongsTo(models.User);
+    Goods.hasMany(models.Follow);
+    Goods.hasMany(models.Transaction);
+    Goods.belongsTo(models.Type);
+    Goods.belongsTo(models.Place);
   };
 
 

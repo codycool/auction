@@ -35,7 +35,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Transaction.associate = function (models) {
-    
+    Transaction.belongsTo(models.User);
+    Transaction.belongsTo(models.Goods);
   };
 
 

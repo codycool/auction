@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Subplace.associate = function (models) {
-    
+    Subplace.hasMany(models.Place);
   };
 
 

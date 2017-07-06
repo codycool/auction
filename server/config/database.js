@@ -3,7 +3,8 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || 'development';
-module.exports = exports = function (config) {
+const config = require(__dirname);
+//module.exports = exports = function (config) {
   const db = {};
 
   let sequelize;
@@ -11,10 +12,10 @@ module.exports = exports = function (config) {
   if (config.use_env_variable) {
     sequelize = new Sequelize(process.env[config.use_env_variable]);
   } else {
-    sequelize = new Sequelize(config.database, config.username, config.password, config);
+    sequelize = new Sequelize(config.db.database, config.db.username, config.db.password, config);
   }
 
-  fs.readdirSync(__dirname + '/model')
+  fs.readdirSync(__dirname + '/../models')
     .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
     .forEach((file) => {
       const model = sequelize.import(path.join(__dirname + '/model', file));
@@ -30,9 +31,5 @@ module.exports = exports = function (config) {
   db.sequelize = sequelize;
   db.Sequelize = Sequelize;
 
-  // Sync all defined models to the DB.  
-  // If force is true, each DAO will do DROP TABLE IF EXISTS ..., before it tries to create its own table
-  // Match a regex against the database name before syncing, a safety check for cases where force: true is used in tests but not live code
-  sequelize.sync(/**{ force: true, match: /Dev/ }*/);
-  return db;
-};
+  
+  module.exports = db;

@@ -18,7 +18,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Follow.associate = function (models) {
-    
+    Follow.belongsTo(models.User);
+    Follow.belongsTo(models.Goods);
   };
 
 
