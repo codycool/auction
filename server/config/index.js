@@ -4,4 +4,4 @@ const config = {
   //production: require('./production.js'),
 }
 
-module.exports = config[env]
+module.exports = config[env];

@@ -7,13 +7,20 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER
     },
     hashPassword: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.STRING
     },
     nickName: {
-      allowNull: false,
-      type: DataTypes.STRING,
-      unique: true
+      allowNull: true,
+      type: DataTypes.STRING
+    },
+    phone: {
+      allowNull: true,
+      type: DataTypes.STRING
+    },
+    birthday: {
+      allowNull: true,
+      type: DataTypes.DATEONIY
     },
     email: {
       allowNull: false,
@@ -26,6 +33,16 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false
     },
     verifyEmailToken: {
+      allowNull: true,
+      type: DataTypes.STRING
+    },
+    isSocial:
+    {
+      allowNull:false,
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    facebook:{
       allowNull: true,
       type: DataTypes.STRING
     },

@@ -1,7 +1,7 @@
 var app = require('./server/app');
-var debug = require('debug')('node-irich:server');
+var debug = require('debug')('auction:server');
 var http = require('http');
-var models = require('./config/database');
+var models = require('./models/index');
 
 /**
  * Get port from environment and store in Express.
